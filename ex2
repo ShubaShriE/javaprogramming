@@ -1,0 +1,28 @@
+class Encryptor {
+    private final String inputString;
+    private final int key;
+
+    
+    public Encryptor(String inputString, int key) {
+        this.inputString = inputString;
+        this.key = key;
+    }
+
+    
+    public String encryptString() {
+        StringBuilder encryptedString = new StringBuilder();
+
+        for (char c : inputString.toCharArray()) {
+            if (Character.isLetter(c)) {
+                char encryptedChar = encryptCharacter(c, key);
+                encryptedString.append(encryptedChar);
+            } else {
+                encryptedString.append(c); 
+            }
+        }
+
+        return encryptedString.toString();
+    }
+
+  
+    
